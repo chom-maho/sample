@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>〇〇内科小児科クリニック｜〇〇市 〇〇</title>
+  <meta name="description" content="医療法人社団〇〇会 〇〇内科小児科クリニック。東京都〇〇市〇〇、〇〇駅北口すぐ。内科・小児科・糖尿病診療。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory: #f9f6f0;
+      --cream: #f0ebe0;
+      --sage: #7a9e8e;
+      --sage-dark: #4d7566;
+      --sage-light: #b5d0c5;
+      --sage-pale: #e8f2ee;
+      --charcoal: #2c3130;
+      --warm-gray: #7a7570;
+      --gold: #b8966a;
+      --gold-light: #d4b48a;
+      --white: #ffffff;
+      --border: #d8d0c4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      background-color: var(--ivory);
+      color: var(--charcoal);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(249, 246, 240, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      text-decoration: none;
+    }
+
+    .logo-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      color: var(--sage-dark);
+      text-transform: uppercase;
+    }
+
+    .logo-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 0.05em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--warm-gray);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--sage);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover { color: var(--sage-dark); }
+    nav a:hover::after { width: 100%; }
+
+    .nav-tel {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--sage-dark) !important;
+      border: 1px solid var(--sage-light);
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+    }
+
+    .nav-tel::after { display: none; }
+    .nav-tel:hover { background: var(--sage-pale) !important; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 8vw;
+      position: relative;
+    }
+
+    .hero-text::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 4vw;
+      width: 1px;
+      height: 40%;
+      background: linear-gradient(to bottom, transparent, var(--sage-light), transparent);
+    }
+
+    .hero-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s ease forwards;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+      color: var(--charcoal);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s ease forwards;
+    }
+
+    .hero-title strong {
+      font-weight: 500;
+      color: var(--sage-dark);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: var(--warm-gray);
+      max-width: 380px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s ease forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s ease forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--sage-dark);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid var(--sage-dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--charcoal);
+      border-color: var(--charcoal);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--sage-dark);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid var(--sage-light);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--sage-pale);
+      border-color: var(--sage);
+    }
+
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      background: var(--sage-pale);
+    }
+
+    .hero-visual-inner {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 60% 40%, rgba(122,158,142,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 30% 80%, rgba(184,150,106,0.1) 0%, transparent 50%);
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image:
+        repeating-linear-gradient(45deg, var(--sage-dark) 0, var(--sage-dark) 1px, transparent 0, transparent 50%);
+      background-size: 20px 20px;
+    }
+
+    .hero-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 4px;
+      padding: 2.5rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(77,117,102,0.12), 0 4px 16px rgba(44,49,48,0.06);
+      opacity: 0;
+      animation: fadeIn 1s 1s ease forwards;
+      min-width: 280px;
+    }
+
+    .hero-card-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.2rem;
+      background: var(--sage-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--sage-dark);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .hero-card-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card-tel {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+    }
+
+    .hero-card-note {
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+      margin-top: 0.5rem;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--sage);
+      text-transform: uppercase;
+      animation: fadeIn 1s 1.5s ease forwards;
+      opacity: 0;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--sage-light), transparent);
+      animation: scrollLine 2s 2s ease infinite;
+    }
+
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      50.1% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ========== SECTIONS ========== */
+    section { position: relative; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--sage);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 60px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+
+    /* ========== ABOUT ========== */
+    .about {
+      padding: 8rem 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-visual-box {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--sage-pale);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(122,158,142,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(184,150,106,0.15) 0%, transparent 50%);
+    }
+
+    .about-visual-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .about-icon-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-icon-wrap svg {
+      width: 50px;
+      height: 50px;
+      stroke: var(--sage-dark);
+      fill: none;
+      stroke-width: 1.2;
+    }
+
+    .about-visual-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--sage-dark);
+      text-transform: uppercase;
+    }
+
+    .about-accent {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 60%;
+      height: 60%;
+      border: 1px solid var(--sage-light);
+      z-index: -1;
+    }
+
+    .about-content { }
+
+    .about-text {
+      font-size: 0.92rem;
+      line-height: 2.1;
+      color: var(--warm-gray);
+      margin-top: 2rem;
+    }
+
+    .about-text p + p { margin-top: 1.2em; }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .value-item {
+      padding: 1.5rem;
+      background: var(--ivory);
+      border-left: 2px solid var(--sage-light);
+    }
+
+    .value-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--sage-dark);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .value-text {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+
+    /* ========== SERVICES ========== */
+    .services {
+      padding: 8rem 0;
+      background: var(--ivory);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-header .section-label {
+      justify-content: center;
+    }
+
+    .services-header .section-label::after { display: none; }
+
+    .services-header .section-label::before {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 60px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 3rem 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--sage), var(--sage-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(44,49,48,0.08); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--sage-pale);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--sage-dark);
+      fill: none;
+      stroke-width: 1.3;
+    }
+
+    .service-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--warm-gray);
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .service-list li {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .service-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--sage-light);
+    }
+
+    /* ========== HOURS ========== */
+    .hours {
+      padding: 8rem 0;
+      background: var(--sage-pale);
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .hours-info { }
+
+    .hours-note {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 2;
+      margin-top: 1.5rem;
+    }
+
+    .hours-note .highlight {
+      color: var(--sage-dark);
+      font-weight: 500;
+    }
+
+    .hours-tel {
+      margin-top: 2.5rem;
+      padding: 1.8rem 2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .hours-tel-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .hours-tel-number {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+    }
+
+    .hours-tel-note {
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+      margin-top: 0.4rem;
+    }
+
+    .hours-table-wrap {
+      overflow: hidden;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours-table th,
+    .hours-table td {
+      padding: 1rem 1.2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .hours-table thead th {
+      background: var(--sage-dark);
+      color: var(--white);
+      font-weight: 400;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hours-table thead th:first-child {
+      background: var(--charcoal);
+    }
+
+    .hours-table tbody tr:last-child td { border-bottom: none; }
+
+    .hours-table tbody tr:nth-child(even) td {
+      background: rgba(255,255,255,0.6);
+    }
+
+    .hours-table tbody td:first-child {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      background: rgba(255,255,255,0.8);
+    }
+
+    .circle-check {
+      color: var(--sage-dark);
+      font-size: 1.1rem;
+    }
+
+    .circle-short {
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+
+    .circle-close {
+      color: #bbb;
+      font-size: 1rem;
+    }
+
+    /* ========== ACCESS ========== */
+    .access {
+      padding: 8rem 0;
+      background: var(--white);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .access-info { }
+
+    .info-block {
+      padding: 2rem 2.5rem;
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--cream);
+    }
+
+    .info-item:last-child { border-bottom: none; }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--sage-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--sage-dark);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .info-content { }
+
+    .info-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-text {
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    .map-wrap {
+      position: relative;
+    }
+
+    .map-container {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--sage-pale);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: saturate(0.8) contrast(0.9);
+    }
+
+    .map-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.5rem;
+      border-left: 3px solid var(--sage);
+      box-shadow: 0 4px 20px rgba(44,49,48,0.1);
+    }
+
+    .map-overlay-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .map-overlay-address {
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+      margin-top: 0.3rem;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 5rem 0 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand { }
+
+    .footer-logo-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--sage-light);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-logo-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1rem;
+      line-height: 1.8;
+    }
+
+    .footer-col-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      color: var(--sage-light);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-col ul li a:hover { color: var(--sage-light); }
+
+    .footer-address {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 2;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+    }
+
+    .footer-copy {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-corp {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== DIVIDER ========== */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--sage-light);
+      margin: 1.8rem 0;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 5rem 2rem 3rem; }
+      .hero-visual { height: 60vw; min-height: 300px; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual-box { aspect-ratio: 16/7; }
+      .about-accent { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .hours-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .access-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      nav { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text { padding: 4rem 1.5rem 2rem; }
+      .about-values { grid-template-columns: 1fr; }
+      .section-inner { padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-en">Ito Medical Clinic</span>
+        <span class="logo-ja">〇〇内科小児科クリニック</span>
+      </a>
+      <nav>
+        <a href="#about">クリニックについて</a>
+        <a href="#services">診療内容</a>
+        <a href="#hours">診療時間</a>
+        <a href="#access">アクセス</a>
+        <a href="tel:XXXXXXXXXXX" class="nav-tel">XXX-XXXX-XXXX</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-label">Internal Medicine & Pediatrics · Fuchu, Tokyo</p>
+      <h1 class="hero-title">
+        かかりつけ医として、<br>
+        <strong>地域の皆様の健康を</strong>
+        共に守ります。
+      </h1>
+      <p class="hero-desc">
+        内科・小児科・糖尿病診療を中心に、〇〇・〇〇エリアの皆様の健康を支えています。患者様一人ひとりに向き合い、丁寧な診療を心がけています。
+      </p>
+      <div class="hero-actions">
+        <a href="#hours" class="btn-primary">診療時間を確認する</a>
+        <a href="#access" class="btn-secondary">アクセス</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-inner"></div>
+      <div class="hero-pattern"></div>
+      <div class="hero-card">
+        <div class="hero-card-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.11 2.26 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <p class="hero-card-label">Tel</p>
+        <p class="hero-card-tel">XXX-XXXX-XXXX</p>
+        <p class="hero-card-note">受付時間中にお電話ください</p>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-visual-box">
+            <div class="about-visual-inner">
+              <div class="about-icon-wrap">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </div>
+              <p class="about-visual-tag">Your Family Doctor</p>
+            </div>
+          </div>
+          <div class="about-accent"></div>
+        </div>
+        <div class="about-content reveal">
+          <p class="section-label">About</p>
+          <h2 class="section-title">
+            患者様に寄り添う、<br>地域のかかりつけ医
+          </h2>
+          <div class="divider"></div>
+          <div class="about-text">
+            <p>医療法人社団〇〇会 〇〇内科小児科クリニックは、東京都〇〇市〇〇に位置する、内科・小児科を中心とした地域密着型のクリニックです。</p>
+            <p>京王線〇〇駅北口からすぐのアクセスしやすい場所にあり、お子様からご高齢の方まで、幅広い世代の患者様をお迎えしています。</p>
+            <p>特に糖尿病診療に力を入れており、「より良い糖尿病診療を目指して」をモットーに、専門的かつ親身な診療を提供しています。</p>
+          </div>
+          <div class="about-values">
+            <div class="value-item">
+              <p class="value-title">丁寧な診察</p>
+              <p class="value-text">一人ひとりの症状や生活背景に合わせた、きめ細かな診療を行います。</p>
+            </div>
+            <div class="value-item">
+              <p class="value-title">専門的な診療</p>
+              <p class="value-text">糖尿病をはじめとする生活習慣病の管理・治療に注力しています。</p>
+            </div>
+            <div class="value-item">
+              <p class="value-title">地域医療</p>
+              <p class="value-text">〇〇・〇〇エリアの皆様の健康を長期的に支えます。</p>
+            </div>
+            <div class="value-item">
+              <p class="value-title">小児診療</p>
+              <p class="value-text">お子様の成長を見守り、健やかな発育をサポートします。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="services-header reveal">
+        <p class="section-label">Services</p>
+        <h2 class="section-title">診療内容</h2>
+        <div class="divider" style="margin: 1.5rem auto;"></div>
+        <p style="font-size: 0.88rem; color: var(--warm-gray); margin-top: 1rem;">
+          内科・小児科・糖尿病専門診療を通じて、皆様の健康を守ります。
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-number">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="service-name">内科</h3>
+          <p class="service-desc">風邪・発熱・腹痛などの一般的な内科疾患から、慢性疾患の管理まで幅広く対応します。</p>
+          <ul class="service-list">
+            <li>発熱・咳・倦怠感</li>
+            <li>胃腸炎・腹痛</li>
+            <li>高血圧・脂質異常症</li>
+            <li>生活習慣病全般</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3 class="service-name">小児科</h3>
+          <p class="service-desc">お子様の発熱・かぜ症状から予防接種、乳幼児健診まで、お子様の健康を総合的にサポートします。</p>
+          <ul class="service-list">
+            <li>発熱・咳・鼻水</li>
+            <li>乳幼児健診</li>
+            <li>予防接種</li>
+            <li>アレルギー相談</li>
+          </ul>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-number">03</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="service-name">糖尿病診療</h3>
+          <p class="service-desc">「より良い糖尿病診療を目指して」をモットーに、最新の知見に基づいた専門的な糖尿病治療を提供します。</p>
+          <ul class="service-list">
+            <li>血糖コントロール</li>
+            <li>インスリン療法</li>
+            <li>合併症予防・管理</li>
+            <li>生活指導・栄養相談</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS -->
+  <section class="hours" id="hours">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Hours</p>
+        <h2 class="section-title">診療時間</h2>
+      </div>
+      <div class="hours-grid">
+        <div class="hours-info reveal">
+          <div class="hours-note">
+            <p>受付は診療終了の<span class="highlight">15分前</span>まで行っております。</p>
+            <p style="margin-top: 0.8rem;">初診の方はお早めにお越しください。</p>
+            <p style="margin-top: 0.8rem;">休診日：<span class="highlight">水曜・日曜・祝日</span></p>
+          </div>
+          <div class="hours-tel">
+            <p class="hours-tel-label">Telephone</p>
+            <a href="tel:XXXXXXXXXXX" style="text-decoration: none;">
+              <p class="hours-tel-number">XXX-XXXX-XXXX</p>
+            </a>
+            <p class="hours-tel-note">※お電話でのご予約・お問い合わせ</p>
+          </div>
+        </div>
+        <div class="hours-table-wrap reveal">
+          <table class="hours-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+                <th>日・祝</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>9:00 〜 11:45</td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-close">✕</span></td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-close">✕</span></td>
+              </tr>
+              <tr>
+                <td>16:15 〜 18:15</td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-close">✕</span></td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-check">●</span></td>
+                <td><span class="circle-close">✕</span></td>
+                <td><span class="circle-close">✕</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 0.72rem; color: var(--warm-gray); margin-top: 1rem; padding-left: 0.5rem;">
+            ※診療時間は変更になる場合があります。事前にお電話でご確認ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section class="access" id="access">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Access</p>
+        <h2 class="section-title">アクセス</h2>
+      </div>
+      <div class="access-grid">
+        <div class="access-info reveal">
+          <div class="info-block">
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="info-content">
+                <p class="info-label">Address</p>
+                <p class="info-text">〒XXX-XXXX<br>東京都〇〇市〇〇X-XX-XX<br>〇〇ビル2F</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13"/>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                  <circle cx="5.5" cy="18.5" r="2.5"/>
+                  <circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
+              </div>
+              <div class="info-content">
+                <p class="info-label">Train Access</p>
+                <p class="info-text">京王線<strong>〇〇駅</strong>北口より<br>徒歩約3分</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.11 2.26 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <div class="info-content">
+                <p class="info-label">Tel / Fax</p>
+                <p class="info-text">TEL: <a href="tel:XXXXXXXXXXX" style="color: var(--sage-dark); text-decoration: none;">XXX-XXXX-XXXX</a></p>
+              </div>
+            </div>
+          </div>
+          <a href="https://maps.google.com/maps?q=東京都〇〇市〇〇X-XX-XX" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.82rem; color: var(--sage-dark); text-decoration: none; border-bottom: 1px solid var(--sage-light); padding-bottom: 0.2rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Google マップで開く
+          </a>
+        </div>
+        <div class="map-wrap reveal">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.9964765657!2d139.47855!3d35.6583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f1f0e7e7e7e7%3A0x0!2z5Lic5Lqs6YO95bqD5Lit5biC55m96IKJ5Y-w77yU77yR77yT4oiS77yR77yQ!5e0!3m2!1sja!2sjp!4v1"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="〇〇内科小児科クリニック 地図">
+            </iframe>
+          </div>
+          <div class="map-overlay">
+            <p class="map-overlay-name">〇〇内科小児科クリニック</p>
+            <p class="map-overlay-address">東京都〇〇市〇〇X-XX-XX 〇〇ビル2F</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <p class="footer-logo-en">Ito Medical Clinic</p>
+          <p class="footer-logo-ja">〇〇内科小児科クリニック</p>
+          <p class="footer-tagline">
+            医療法人社団〇〇会<br>
+            東京都〇〇市〇〇X-XX-XX 〇〇ビル2F<br>
+            TEL: XXX-XXXX-XXXX
+          </p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Menu</p>
+          <ul>
+            <li><a href="#about">クリニックについて</a></li>
+            <li><a href="#services">診療内容</a></li>
+            <li><a href="#hours">診療時間</a></li>
+            <li><a href="#access">アクセス</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Hours</p>
+          <div class="footer-address">
+            <p>月・火・木・金</p>
+            <p>9:00〜11:45</p>
+            <p>16:15〜18:15</p>
+            <br>
+            <p>土曜 9:00〜11:45</p>
+            <br>
+            <p>休診：水・日・祝</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 Ito Internal Medicine & Pediatrics Clinic</p>
+        <p class="footer-corp">医療法人社団〇〇会</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 4px 30px rgba(44,49,48,0.08)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Staggered reveal for sibling cards
+    const serviceCards = document.querySelectorAll('.service-card.reveal');
+    serviceCards.forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.15}s`;
+    });
+  </script>
+</body>
+</html>
