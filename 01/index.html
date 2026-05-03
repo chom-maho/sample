@@ -68,6 +68,27 @@
       text-decoration: none;
     }
 
+    .mobile-tel {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--sage-pale);
+      border: 1px solid var(--sage-light);
+      border-radius: 50%;
+      color: var(--sage-dark);
+      text-decoration: none;
+    }
+
+    .mobile-tel svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--sage-dark);
+      fill: none;
+      stroke-width: 1.8;
+    }
+
     .logo-en {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.7rem;
@@ -987,7 +1008,7 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-text { padding: 5rem 2rem 3rem; }
-      .hero-visual { height: 60vw; min-height: 300px; }
+      .hero-visual { height: 70vw; min-height: 320px; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-visual-box { aspect-ratio: 16/7; }
       .about-accent { display: none; }
@@ -996,12 +1017,35 @@
       .access-grid { grid-template-columns: 1fr; gap: 3rem; }
       .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
       nav { display: none; }
+      .mobile-tel { display: flex; }
     }
 
     @media (max-width: 600px) {
-      .hero-text { padding: 4rem 1.5rem 2rem; }
+      .hero-text { padding: 3rem 1.5rem 2rem; }
       .about-values { grid-template-columns: 1fr; }
-      .section-inner { padding: 0 1.5rem; }
+      .section-inner { padding: 0 1.2rem; }
+
+      /* セクション上下余白を縮小 */
+      .about, .services, .hours, .access { padding: 4rem 0; }
+      footer { padding: 3rem 0 1.5rem; }
+
+      /* Your Family Doctor ビジュアルを非表示 */
+      .about-visual { display: none; }
+
+      /* 電話番号カードをコンパクトに・上寄せ */
+      .hero-visual { min-height: 380px; }
+      .hero-card { padding: 1.5rem 2rem; min-width: 220px; top: 40%; }
+      .hero-card-tel { font-size: 1.3rem; }
+      .hero-card-icon { width: 44px; height: 44px; margin-bottom: 0.8rem; }
+      .hero-card-icon svg { width: 22px; height: 22px; }
+
+      /* スクロールアニメーションを再表示（カードと重ならない位置に） */
+      .hero-scroll { display: flex; bottom: 1.5rem; }
+
+      /* 診療時間テーブルを横スクロール */
+      .hours-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .hours-table { min-width: 480px; }
+      .hours-table th, .hours-table td { padding: 0.8rem 0.6rem; font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -1021,6 +1065,11 @@
         <a href="#access">アクセス</a>
         <a href="tel:XXXXXXXXXXX" class="nav-tel">XXX-XXXX-XXXX</a>
       </nav>
+      <a href="tel:XXXXXXXXXXX" class="mobile-tel" aria-label="電話する">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.11 2.26 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+      </a>
     </div>
   </header>
 
